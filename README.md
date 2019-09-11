@@ -27,6 +27,10 @@ This project is released as part of the [Robot Web Tools](http://robotwebtools.o
 6. Build with multiple processes to increase build speed and suppress excessive output: `make -j -s`
 7. Install built FFmpeg: `sudo make install`
 
+### Increase encoder sessions for NVIDIA GPUs
+
+Use [this repo](https://github.com/keylase/nvidia-patch) to patch NVIDIA driver.
+
 ### License
 web_video_server is released with a BSD license. For full terms and conditions, see the [LICENSE](LICENSE) file.
 

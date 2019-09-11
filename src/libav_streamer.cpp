@@ -315,7 +315,9 @@ void LibavStreamer::sendImage(const cv::Mat &img, const ros::Time &time)
   }
   if (avcodec_receive_packet(codec_context_, &pkt) < 0)
   {
-    throw std::runtime_error("Error retrieving encoded packet");
+    if (codec_name_ !="h264_nvenc") {
+      throw std::runtime_error("Error retrieving encoded packet");
+    }
   }
 #endif
 

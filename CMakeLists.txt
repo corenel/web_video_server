@@ -44,6 +44,7 @@ add_executable(${PROJECT_NAME}
   src/libav_streamer.cpp
   src/vp8_streamer.cpp
   src/h264_streamer.cpp
+  src/h264_nvenc_streamer.cpp
   src/vp9_streamer.cpp
   src/multipart_stream.cpp
   src/ros_compressed_streamer.cpp

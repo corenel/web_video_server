@@ -11,13 +11,13 @@ H264NVENCStreamer::H264NVENCStreamer(
    * veryslow, placebo no latency improvements observed with ultrafast instead
    * of medium
    */
-  preset_ = request.get_query_param_value_or_default("preset", "ultrafast");
+  preset_ = request.get_query_param_value_or_default("preset", "lowlatency");
 }
 
 H264NVENCStreamer::~H264NVENCStreamer() {}
 
 void H264NVENCStreamer::initializeEncoder() {
-  av_opt_set(codec_context_->priv_data, "preset", preset_.c_str(), 0);
+  av_opt_set(codec_context_->priv_data, "preset", preset_.c_str(), 7);
   av_opt_set_int(codec_context_->priv_data, "crf", 1, 0);
   av_opt_set_int(codec_context_->priv_data, "zerolatency", 1, 0);
   //  av_opt_set(codec_context_->priv_data, "tune", "zerolatency", 0);
@@ -33,7 +33,7 @@ void H264NVENCStreamer::initializeEncoder() {
 }
 
 H264NVENCStreamerType::H264NVENCStreamerType()
-    : LibavStreamerType("mp4", "libx264", "video/mp4") {}
+    : LibavStreamerType("mp4", "h264_nvenc", "video/mp4") {}
 
 boost::shared_ptr<ImageStreamer> H264NVENCStreamerType::create_streamer(
     const async_web_server_cpp::HttpRequest& request,

@@ -13,6 +13,7 @@ pkg_check_modules(avcodec libavcodec REQUIRED)
 pkg_check_modules(avformat libavformat REQUIRED)
 pkg_check_modules(avutil libavutil REQUIRED)
 pkg_check_modules(swscale libswscale REQUIRED)
+pkg_check_modules(swresample libswresample REQUIRED)
 
 ###################################################
 ## Declare things to be passed to other projects ##
@@ -35,6 +36,7 @@ include_directories(include
   ${avformat_INCLUDE_DIRS}
   ${avutil_INCLUDE_DIRS}
   ${swscale_INCLUDE_DIRS}
+  ${swresample_INCLUDE_DIRS}
 )
 
 ## Declare a cpp executable
@@ -61,6 +63,7 @@ target_link_libraries(${PROJECT_NAME}
   ${avformat_LIBRARIES}
   ${avutil_LIBRARIES}
   ${swscale_LIBRARIES}
+  ${swresample_LIBRARIES}
 )
 
 #############

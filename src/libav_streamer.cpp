@@ -163,6 +163,7 @@ void LibavStreamer::initialize(const cv::Mat &img)
   avcodec_get_context_defaults3(codec_context_, codec_);
 
   codec_context_->codec_id = codec_->id;
+  codec_context_->codec_type = codec_->type;
   codec_context_->bit_rate = bitrate_;
 
   codec_context_->width = output_width_;
